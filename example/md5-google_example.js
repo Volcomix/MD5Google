@@ -8,8 +8,8 @@ md5Google.awesome();
 
 console.log();
 md5Google.decrypt('f20f8505ac09ae2fe6fe2e68976e80e4')
-.then(function (result) {
-    console.log(result);
+.then(function (results) {
+    console.log(results);
 })
 .catch(function (reason) {
     console.error(reason);
