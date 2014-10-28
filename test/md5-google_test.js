@@ -5,10 +5,6 @@ var assert = require('assert'),
     md5Google = require('../lib/md5-google.js');
 
 describe('md5-google node module.', function () {
-    it('must be awesome', function () {
-        assert(md5Google.awesome(), 'awesome');
-    });
-    
     describe('#decrypt("f20f8505ac09ae2fe6fe2e68976e80e4")', function () {
         var md5Results,
             fulfilledHostnames = ['www.md5-hash.com', 'md5.db30.com', 'md5-online.ru', 'de.md5decoder.org', 'www.md5center.com', 'md5info.ru', 'md5this.com'],

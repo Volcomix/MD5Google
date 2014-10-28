@@ -30,7 +30,7 @@ module.exports = function(grunt) {
       options: {
         reporter: 'nyan',
         bail: true,
-        timeout: 5000
+        timeout: 10000
       },
       all: ['test/*.js']
     },
