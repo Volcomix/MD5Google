@@ -6,7 +6,7 @@ var assert = require('assert'),
 
 describe('md5-google node module.', function () {
     describe('#decrypt.all()', function () {
-        function testDecrypt(md5, expected, fulfilledHostnames, rejectedHostnames, only) {
+        function testDecryptAll(md5, expected, fulfilledHostnames, rejectedHostnames, only) {
             (only ? describe.only : describe)(md5, function () {
                 var md5Results,
                     hostnamesCount = fulfilledHostnames.length + rejectedHostnames.length;
@@ -40,18 +40,18 @@ describe('md5-google node module.', function () {
             });
         }
 
-        testDecrypt.only = function (md5, expected, fulfilledHostnames, rejectedHostnames) {
-            testDecrypt(md5, expected, fulfilledHostnames, rejectedHostnames, true);
+        testDecryptAll.only = function (md5, expected, fulfilledHostnames, rejectedHostnames) {
+            testDecryptAll(md5, expected, fulfilledHostnames, rejectedHostnames, true);
         };
         
-        testDecrypt(
+        testDecryptAll(
             'f20f8505ac09ae2fe6fe2e68976e80e4',
             'logica',
             ['www.md5-hash.com', 'md5.db30.com', 'md5-online.ru', 'de.md5decoder.org', 'www.md5center.com', 'md5info.ru', 'md5this.com'],
             ['www.filehash.info']
         );
 
-        testDecrypt(
+        testDecryptAll(
             '9d0c2b5e15cc600a9828a18a5ffe7dba',
             '123soleil',
             ['md5.znaet.org', 'www.md5this.com'],
@@ -60,7 +60,18 @@ describe('md5-google node module.', function () {
     });
     
     describe('#decrypt()', function () {
-        it('should return "logica" for MD5 "f20f8505ac09ae2fe6fe2e68976e80e4"');
-        it('should return "123soleil" for MD5 "9d0c2b5e15cc600a9828a18a5ffe7dba"');
+        it('should return "logica" for MD5 "f20f8505ac09ae2fe6fe2e68976e80e4"', function () {
+            return md5Google.decrypt('f20f8505ac09ae2fe6fe2e68976e80e4')
+            .then(function (result) {
+                assert.equal(result, 'logica');
+            });
+        });
+        
+        it('should return "123soleil" for MD5 "9d0c2b5e15cc600a9828a18a5ffe7dba"', function () {
+            return md5Google.decrypt('9d0c2b5e15cc600a9828a18a5ffe7dba')
+            .then(function (result) {
+                assert.equal(result, '123soleil');
+            });
+        });
     });
 });
