@@ -49,16 +49,21 @@ describe('md5-google node module.', function () {
         testDecryptAll(
             'f20f8505ac09ae2fe6fe2e68976e80e4',
             'logica',
-            ['www.md5-hash.com', 'md5.db30.com', 'md5-online.ru', 'de.md5decoder.org', 'www.md5center.com', 'md5info.ru', 'md5this.com', 'www.filehash.info'],
+            ['www.md5-hash.com', 'md5.db30.com', 'md5-online.ru', 'www.filehash.info', 'de.md5decoder.org', 'www.md5center.com', 'md5info.ru', 'md5this.com'],
             []
         );
 
         testDecryptAll(
             '9d0c2b5e15cc600a9828a18a5ffe7dba',
             '123soleil',
-            ['md5.znaet.org', 'www.md5this.com'],
-            ['forum.antichat.net', 'cegica.googlecode.com', 'www.stafaband.info', 'forum.insidepro.com', 'pastebin.ca', 'paste2.org', 'dopeco.de', 'pastebin.com']
+            ['md5cracker.org', 'md5.znaet.org', 'www.md5this.com', 'md5-passwort.de'],
+            ['forum.antichat.net', 'cegica.googlecode.com', 'www.stafaband.info', 'forum.insidepro.com', 'pastebin.ca', 'paste2.org']
         );
+        
+        it('should find a result for each parser');
+        it('should not find any result');
+        it('should fail requesting Google');
+        it('should fail requesting MD5 URL');
     });
     
     describe('#decrypt()', function () {
@@ -85,5 +90,11 @@ describe('md5-google node module.', function () {
                 assert.equal(reason, 'No result found');
             });
         });
+        
+        it('should find results but fail parsing');
+        it('should find results but no parser');
+        it('should not find any result');
+        it('should fail requesting Google');
+        it('should fail requesting MD5 URL');
     });
 });
