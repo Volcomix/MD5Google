@@ -60,8 +60,17 @@ describe('md5-google node module.', function () {
             ['forum.antichat.net', 'cegica.googlecode.com', 'www.stafaband.info', 'forum.insidepro.com', 'pastebin.ca', 'paste2.org']
         );
         
+        it('should not find any result', function () {
+            return md5Google.decrypt.all('a6c4e4ce4ab075c33b80986c1b00125a') // Un8r34k48l3
+            .then(function (results) {
+                assert.fail(results, 'No result found', 'Results was found', '==');
+            })
+            .catch(function (reason) {
+                assert.equal(reason, 'No result found');
+            });
+        });
+        
         it('should find a result for each parser');
-        it('should not find any result');
         it('should fail requesting Google');
         it('should fail requesting MD5 URL');
     });
