@@ -81,8 +81,8 @@ describe('md5-google node module.', function () {
             });
         });
         
-        it('should decrypt MD5 "a6c4e4ce4ab075c33b80986c1b00125a" for "Un8r34k48l3"', function () {
-            return md5Google.decrypt('a6c4e4ce4ab075c33b80986c1b00125a')
+        it('should not find any result', function () {
+            return md5Google.decrypt('a6c4e4ce4ab075c33b80986c1b00125a') // Un8r34k48l3
             .then(function (result) {
                 assert.fail(result, 'No result found', 'A result was found', '==');
             })
@@ -93,7 +93,6 @@ describe('md5-google node module.', function () {
         
         it('should find results but fail parsing');
         it('should find results but no parser');
-        it('should not find any result');
         it('should fail requesting Google');
         it('should fail requesting MD5 URL');
     });
